@@ -1,4 +1,3 @@
-
 const formu=document.getElementById("form");
 const list=document.getElementById("list");
 let listaNombres=[];
@@ -37,17 +36,16 @@ formu.addEventListener("submit",(e)=>{
 })
 function eliminar(nombre){
     let indexArray;
-    let index= -1;
-    listaNombres.forEach(element=>{
-        index++;
-        if (nombre = element){
+    console.log(nombre);
+    listaNombres.forEach((element,index)=>{
+        if (nombre === element){
             indexArray=index;
             
             
         }
         
     })
-    console.log(index);
+    
     console.log(indexArray);
     console.log("hola");
     listaNombres.splice(indexArray,1);
@@ -62,7 +60,6 @@ function eliminar(nombre){
             indexArray=index;
             console.log(indexArray);
         }
-
     })
     eliminar(nombre);
     alert("Edite su nombre");
@@ -101,9 +98,9 @@ list.addEventListener("click",(e)=>{
     
     
     let icon=e.target.innerHTML;
-    console.log(icon);
+    console.log(e);
    if (icon === "delete_outline"){
-      eliminar(e.path[1].childNodes[1].innerHTML); 
+      eliminar(e.path[2].childNodes[0].childNodes[0].data); 
       
    }
    
@@ -116,4 +113,3 @@ list.addEventListener("click",(e)=>{
 })
 
 document.addEventListener("DOMcontentLoaded",render());
-
